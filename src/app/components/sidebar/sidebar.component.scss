@@ -1,0 +1,110 @@
+// Sidebar
+.sidebar{
+    width: 250px;
+    height: 100vh;
+    background-color: var(--primary-color);
+    padding: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+
+    @media (max-width: 672px) {
+        width: 50px;
+
+        .link-name{
+            display: none;
+        }
+
+        .user-info{
+            display: none;
+        }
+
+        .circles{
+            margin-left: -10px;
+        }
+    }
+
+    .logo-header{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .user-section{
+
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        border-top: 2px solid var(--primary-text);
+        border-bottom: 2px solid var(--primary-text);
+        padding: 10px 0;
+
+        .avtar-sec{
+
+            .circles{
+                height: 35px;
+                width: 35px;
+                border-radius: 50%;
+                background-color: var(--avatar-color);
+            }
+        }
+        .user-info{
+            display: flex;
+            align-items: start;
+            justify-content: center;
+            flex-direction: column;
+            padding-left: 15px;
+
+            .username-sec, .user-role{
+                display: flex;
+                align-items: center;
+                justify-content: start;
+            }
+
+            .username-sec span{
+                font-size: 1rem;
+                font-weight: 700;
+                color: var(--primary-text)
+            }
+
+            .user-role span{
+                font-size: .9rem;
+                font-weight: 400;
+                color: var(--text-sec-color);
+            }
+        }
+    }
+
+    .navlink-section{
+        display: flex;
+        align-items: center;
+        justify-content: start;
+
+        .list{
+            list-style: none;
+            width: 100%;
+            padding-left: 0;
+
+            .list-items{
+                padding: 20px 0;
+
+                a{
+                    font-size: 1rem;
+                    color: var(--text-sec-color);
+                    text-decoration: none;
+
+                    .bi{
+                        font-size: 1.3rem;
+                        margin-right: 8px;
+
+                    }
+
+                    &.active{
+                        color: var(--primary-text);
+                    }
+                }
+            }
+        }
+    }
+}

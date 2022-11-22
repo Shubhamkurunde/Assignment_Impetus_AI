@@ -1,0 +1,141 @@
+<main class="contents-section">
+    <div class="accordion" id="accordionExample">
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    Event Information
+                </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <strong>This is the Event Information</strong>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingThree">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    KMK Information
+                </button>
+            </h2>
+            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <strong>This is the KMK Information</strong>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingFour">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                    Client Information
+                </button>
+            </h2>
+            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+                data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <strong>This is the client information section</strong>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                    aria-expanded="true" aria-controls="collapseOne">
+                    Budget Information
+                </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <div class="btn-group my-5">
+                        <button class="btn">Decoration</button><button class="btn">Food</button><button
+                            class="btn">VAS</button><button class="btn">Others</button>
+                    </div>
+
+                    <div class="tabs">
+                        <p>
+                            <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button"
+                                aria-expanded="false" aria-controls="collapseExample">
+                                Decoration & Props
+                            </a>
+                            <a class="btn btn-primary" data-bs-toggle="collapse1" href="#collapseExample1" role="button"
+                                aria-expanded="false" aria-controls="collapseExample1">
+                                Floral
+                            </a>
+                            <a class="btn btn-primary" data-bs-toggle="collapse2" href="#collapseExample2" role="button"
+                                aria-expanded="false" aria-controls="collapseExample2">
+                                Logistics
+                            </a>
+                            <a class="btn btn-primary" data-bs-toggle="collapse3" href="#collapseExample3" role="button"
+                                aria-expanded="false" aria-controls="collapseExample3">
+                                Conceptual Lightning
+                            </a>
+                            <a class="btn btn-primary" data-bs-toggle="collapse4" href="#collapseExample4" role="button"
+                                aria-expanded="false" aria-controls="collapseExample4">
+                                Sound
+                            </a>
+                        </p>
+                        <div class="collapse" id="collapseExample">
+                            <div class="card card-body">
+                                <button class="btn ms-auto" id="BTN">+ Add</button>
+                            </div>
+
+                            <table class="table">
+                                <thead>
+                                  <tr>
+                                    <th scope="col">PArticulars</th>
+                                    <th scope="col">UDM</th>
+                                    <th scope="col">Qty</th>
+                                    <th scope="col">Rate</th>
+                                    <th scope="col">Amount</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr *ngFor="let item of this._state.mainConstructionData">
+                                    <th scope="row">{{item.name}}</th>
+                                    <td><input type="text" [value]="item.udm" placeholder="UDM" class="form-control"></td>
+                                    <td><input type="text" [value]="item.qty" placeholder="Qty" class="form-control"></td>
+                                    <td><input type="text" [value]="item.rate" placeholder="Rate" class="form-control"></td>
+                                    <td><input type="text" [value]="item.amount" placeholder="Amount" class="form-control"></td>
+                                  </tr>
+                                </tbody>
+                              </table>
+
+                              <p class="formatter"><span>Total</span> <span>Rs. 50,000</span></p>
+                              <p class="formatter"><span>Total</span> <span>Rs. 20,00,000</span></p>
+                        </div>
+                        <!-- <div class="collapse1" id="collapseExample1">
+                            <div class="card card-body">
+                                Some placeholder content for the collapse component. This panel is hidden by default but
+                                revealed when the user activates the relevant trigger.
+                            </div>
+                        </div>
+                        <div class="collapse2" id="collapseExample2">
+                            <div class="card card-body">
+                                Some placeholder content for the collapse component. This panel is hidden by default but
+                                revealed when the user activates the relevant trigger.
+                            </div>
+                        </div>
+                        <div class="collapse3" id="collapseExample3">
+                            <div class="card card-body">
+                                Some placeholder content for the collapse component. This panel is hidden by default but
+                                revealed when the user activates the relevant trigger.
+                            </div>
+                        </div>
+                        <div class="collapse4" id="collapseExample4">
+                            <div class="card card-body">
+                                Some placeholder content for the collapse component. This panel is hidden by default but
+                                revealed when the user activates the relevant trigger.
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

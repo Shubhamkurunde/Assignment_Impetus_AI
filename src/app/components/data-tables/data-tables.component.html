@@ -1,0 +1,97 @@
+<main class="contents-section">
+    <h2 class="heading my-5">Leads</h2>
+    <div class="mid-section my-5">
+        <div class="left-sec">
+            &nbsp;
+        </div>
+        <div class="right-sec">
+            <div class="input-group">
+                <input type="text" name="search" id="search" class="form-control">
+                <button class="btn"><i class="bi bi-search"></i></button>
+            </div>
+            <!-- <button class="btn"><i class="bi bi-plus-lg"></i> Add New</button> -->
+
+            <!-- Button trigger modal -->
+            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <i class="bi bi-plus-lg"></i>Add New
+            </button>
+            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Assign to Admin
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                
+                <form [formGroup]="saveForm" (submit)="addData()">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Add Data</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="resetUpdater()"></button>
+                        </div>
+                        <div class="modal-body">
+                                <div class="mb-3">
+                                    <label  class="form-label">Name</label>
+                                    <input [ngStyle]="{'border-color': saveForm.controls['name'].touched && saveForm.controls['name'].valid ? 'red' : 'green'}" formControlName="name" type="text" class="form-control"
+                                        placeholder="Name">
+                                </div>
+                                <div class="mb-3">
+                                    <label  class="form-label">Lead Id</label>
+                                    <input [ngStyle]="{'border-color': saveForm.controls['leadId'].touched && saveForm.controls['leadId'].valid ? 'red' : 'green'}" formControlName="leadId" type="number" class="form-control"
+                                        placeholder="Lead Id">
+                                </div>
+                                <div class="mb-3">
+                                    <label  class="form-label">Location</label>
+                                    <input [ngStyle]="{'border-color': saveForm.controls['location'].touched && saveForm.controls['location'].valid ? 'red' : 'green'}" formControlName="location" type="text" class="form-control"
+                                        placeholder="Location">
+                                </div>
+                                <div class="mb-3">
+                                    <label  class="form-label">Event Date</label>
+                                    <input [ngStyle]="{'border-color': saveForm.controls['eventDate'].touched && saveForm.controls['eventDate'].valid ? 'red' : 'green'}" formControlName="eventDate" type="text" class="form-control"
+                                        placeholder="Event Date">
+                                </div>
+                                <div class="mb-3">
+                                    <label  class="form-label">Status</label>
+                                    <input [ngStyle]="{'border-color': saveForm.controls['status'].touched && saveForm.controls['status'].valid ? 'red' : 'green'}" formControlName="status" type="text" class="form-control"
+                                        placeholder="Status">
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn" data-bs-dismiss="modal" (click)="resetUpdater()">Close</button>
+                                <button type="submit" *ngIf="updater == -1" class="btn" style="background-color: var(--primary-color); color: var(--primary-text); font-weight: 700;">Submit</button>
+                                <button type="button" *ngIf="updater != -1" (click)="updateData(updater)" class="btn" data-bs-dismiss="modal" style="background-color: var(--primary-color); color: var(--primary-text); font-weight: 700;">Update</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="wrapper">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>&nbsp;</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Lead Id</th>
+                    <th scope="col">Location</th>
+                    <th scope="col">Event Date</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">&nbsp;</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of this._state.data; let i = index">
+                    <th scope="row"><input type="checkbox" [checked]="item.checks"></th>
+                    <th [ngStyle]="{'text-decoration': item.visible ? 'none' : 'line-through'}">{{item.name}}</th>
+                    <td [ngStyle]="{'text-decoration': item.visible ? 'none' : 'line-through'}">{{item.leadId}}</td>
+                    <td [ngStyle]="{'text-decoration': item.visible ? 'none' : 'line-through'}">{{item.location}}</td>
+                    <td [ngStyle]="{'text-decoration': item.visible ? 'none' : 'line-through'}">{{item.eventDate}}</td>
+                    <td [ngStyle]="{'text-decoration': item.visible ? 'none' : 'line-through'}">{{item.status}}</td>
+                    <td><i class="bi bi-eye" *ngIf="item.visible" (click)="invertVisible(i)"></i><i class="bi bi-eye-slash" *ngIf="!item.visible" (click)="invertVisible(i)"></i><i class="bi bi-pencil" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="getDataForUpdate(i)"></i><i class="bi bi-trash3" (click)="deletess(i)"></i><i class="bi bi-search"></i></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</main>
